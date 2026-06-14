@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Склад филамента (пластика)</h2>
+    <a href="{% url 'filament_create' %}" class="btn btn-success">+ Добавить пластик</a>
+</div>
+<div class="row">
+    {% for filament in filaments %}
+    <div class="col-md-4">
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ filament.brand }} ({{ filament.material_type }})</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Цвет: {{ filament.color }}</h6>
+                <p class="card-text mb-1">Цена: <strong>{{ filament.purchase_price }} руб.</strong></p>
+                <p class="card-text">Остаток: <span class="badge bg-info">{{ filament.remaining_weight_g }} г. из {{ filament.total_weight_g }} г.</span></p>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>На вашем складе пока нет катушек.</p>
+    {% endfor %}
+</div>
+{% endblock %}

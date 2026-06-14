@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm border">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Анализатор себестоимости 3D-печати</h1>
+        <p class="col-md-8 fs-4">Профессиональный калькулятор затрат на аддитивное производство. Учитывайте износ сопел и ремней, расход филамента и стоимость тарифов ЖКХ за секунду.</p>
+        {% if user.is_authenticated %}
+            <a class="btn btn-primary btn-lg" href="{% url 'job_create' %}" role="button">Рассчитать новую печать</a>
+        {% else %}
+            <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Создать аккаунт</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

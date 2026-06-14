@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="mb-4">Аналитика Вашей мастерской</h1>
+
+{% if no_data %}
+    <div class="alert alert-warning">Для генерации аналитического отчета необходимо провести хотя бы один расчет печати детали.</div>
+{% else %}
+    <div class="row g-4 mb-4">
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm text-center">
+                <h6>Суммарный расход</h6>
+                <p class="display-6 text-primary fw-bold">{{ total_spend }} ₽</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm text-center">
+                <h6>Коэффициент успеха</h6>
+                <p class="display-6 text-success fw-bold">{{ success_rate }}%</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm text-center">
+                <h6>Общий накат принтеров</h6>
+                <p class="display-6 text-info fw-bold">{{ total_hours }} ч</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm text-center">
+                <h6>Количество деталей</h6>
+                <p class="display-6 text-secondary fw-bold">{{ total_jobs_count }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-4 shadow-sm mb-4">
+        <!-- Место для графика Plotly -->
+        <div>
+            {{ chart_div|safe }}
+        </div>
+    </div>
+{% endif %}
+{% endblock %}
