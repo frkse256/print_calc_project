@@ -15,4 +15,5 @@ urlpatterns = [
     path('jobs/create/', views.job_create, name='job_create'),
 
     path('analytics/', views.analytics, name='analytics'),
+    path('api/printers/', views.api_printers, name='api_printers'),
 ]

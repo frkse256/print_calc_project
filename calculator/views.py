@@ -6,7 +6,7 @@ from django.contrib import messages
 from .models import Printer, Filament, PrintJob
 from .forms import PrinterForm, FilamentForm, PrintJobForm, UserRegisterForm
 from django.db.models import Sum
-
+from django.http import JsonResponse
 def index(request):
     return render(request, 'index.html')
 
@@ -142,3 +142,16 @@ def analytics(request):
     }
 
     return render(request, 'analytics.html', context)
+
+@login_required
+def api_printers(request):
+    """Собственный API: возвращает список принтеров текущего пользователя в формате JSON"""
+    printers = Printer.objects.filter(user=request.user)
+    data = [{
+        'id': p.id,
+        'name': p.name,
+        'power_consumption_watts': p.power_consumption_watts,
+        'purchase_price': float(p.purchase_price),
+        'total_hours_printed': p.total_hours_printed
+    } for p in printers]
+    return JsonResponse({'printers': data}, safe=False)
