@@ -14,7 +14,7 @@
 ## Как запустить проект локально
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/ваш-юзернейм/название-репо.git
+   git clone https://github.com/frkse256/print_calc_project
 
 2. Создайте и запустите виртуальное окружение:
 
