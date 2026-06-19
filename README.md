@@ -13,7 +13,7 @@
 
 ## Скриншоты интерфейса
 
-![Главная страница](https://raw.githubusercontent.com/frkse256/print_calc_project/main/static/screenshots/main.png)
+![Главная страница](https://github.com/frkse256/print_calc_project/blob/main/static/screenshots/main.png)
 *Посадочная страница сервиса*
 
 ![Аналитический дашборд](https://raw.githubusercontent.com/frkse256/print_calc_project/main/static/screenshots/analytics.png)
